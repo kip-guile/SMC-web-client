@@ -1,14 +1,12 @@
 import React, { useEffect } from 'react'
-import { Box, Text, Spinner } from '@chakra-ui/react'
-import { useSelector } from 'react-redux'
-import { useThunkDispatch } from '../hooks/useThunkDispatch'
-import { RootState } from '../store/rootReducer'
-import { searchMovieDatabase } from '../store/movies/moviesSlice'
+import { Box, Input, Spinner } from '@chakra-ui/react'
 import Results from '../components/results'
+import SearchInput from '../components/searchInput'
 
 const Main = () => {
   return (
     <Box>
+      <SearchInput />
       <Results />
     </Box>
   )
