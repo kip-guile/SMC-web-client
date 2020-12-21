@@ -14,7 +14,7 @@ const Nominations = () => {
 
   useEffect(() => {
     dispatch(getNominations())
-  }, [])
+  }, [dispatch])
   return (
     <Box w='30%'>
       <Text mb={4} fontSize='xl'>

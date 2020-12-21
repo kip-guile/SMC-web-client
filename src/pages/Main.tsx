@@ -14,6 +14,7 @@ const Main = () => {
   const [text, setText] = useState('')
   const dispatch = useThunkDispatch()
   const loading = useSelector((state: RootState) => state.nominations.loading)
+  const searchLoading = useSelector((state: RootState) => state.movies.loading)
   const nominations = useSelector(
     (state: RootState) => state.nominations.nominations
   )
@@ -38,7 +39,7 @@ const Main = () => {
         <Results searchString={text} />
         <Nominations />
       </Box>
-      <LoadingModal isOpen={loading} onClose={() => {}} />
+      <LoadingModal isOpen={loading || searchLoading} onClose={() => {}} />
     </Box>
   )
 }

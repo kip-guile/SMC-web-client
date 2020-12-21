@@ -1,8 +1,12 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { Movie } from './types'
+import { MovieState } from './types'
 import axios from 'axios'
 
-const moviesInitialState: Movie[] = []
+const moviesInitialState: MovieState = {
+  searchString: '',
+  movies: [],
+  loading: false,
+}
 
 export const searchMovieDatabase = createAsyncThunk(
   'movies/searchMovieDatabase',
@@ -10,7 +14,7 @@ export const searchMovieDatabase = createAsyncThunk(
     const res = await axios.get(
       `http://www.omdbapi.com/?apikey=45f98500&s=${searchString}`
     )
-    return res.data.Search
+    return { movies: res.data.Search, string: searchString }
   }
 )
 
@@ -19,8 +23,25 @@ const movieSlice = createSlice({
   initialState: moviesInitialState,
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(searchMovieDatabase.pending, (state, action) => {
+      return {
+        ...state,
+        loading: true,
+      }
+    })
     builder.addCase(searchMovieDatabase.fulfilled, (state, action) => {
-      return action.payload
+      return {
+        searchString: action.payload.string,
+        movies: action.payload.movies ? action.payload.movies : [],
+        loading: false,
+      }
+    })
+    builder.addCase(searchMovieDatabase.rejected, (state, action) => {
+      return {
+        ...state,
+        movies: [...state.movies],
+        loading: false,
+      }
     })
   },
 })

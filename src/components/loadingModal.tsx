@@ -5,6 +5,8 @@ import {
   ModalContent,
   ModalBody,
   Spinner,
+  Box,
+  Text,
 } from '@chakra-ui/react'
 
 interface LoadingModalProps {
@@ -19,7 +21,23 @@ const LoadingModal = ({ isOpen, onClose }: LoadingModalProps) => {
         <ModalOverlay />
         <ModalContent>
           <ModalBody>
-            <Spinner />
+            <Box
+              h='20rem'
+              w='100%'
+              d='flex'
+              flexDirection='column'
+              alignItems='center'
+              justifyContent='center'
+            >
+              <Text mb={5}>Loading...</Text>
+              <Spinner
+                thickness='4px'
+                speed='0.65s'
+                emptyColor='gray.200'
+                color='blue.500'
+                size='xl'
+              />
+            </Box>
           </ModalBody>
         </ModalContent>
       </Modal>

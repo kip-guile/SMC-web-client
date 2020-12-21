@@ -9,13 +9,16 @@ interface ResultsProps {
 }
 
 const Results = ({ searchString }: ResultsProps) => {
-  const searchedMovies = useSelector((state: RootState) => state.movies)
-
+  const searchedMovies = useSelector((state: RootState) => state.movies.movies)
+  const mainString = useSelector(
+    (state: RootState) => state.movies.searchString
+  )
+  console.log(searchedMovies)
   return (
     <Box w='60%'>
-      {searchedMovies.length > 0 ? (
+      {searchedMovies.length > 0 && mainString.length > 0 ? (
         <Text mb={4} fontSize='xl'>
-          Results for "{searchString}"
+          Results for "{mainString}"
         </Text>
       ) : null}
       {searchedMovies.length > 0 ? (
