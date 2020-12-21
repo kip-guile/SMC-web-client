@@ -6,7 +6,11 @@ import { RootState } from '../store/rootReducer'
 import { searchMovieDatabase } from '../store/movies/moviesSlice'
 import Card from './card'
 
-const Results = () => {
+interface ResultsProps {
+  searchString: string
+}
+
+const Results = ({ searchString }: ResultsProps) => {
   const dispatch = useThunkDispatch()
   const searchedMovies = useSelector((state: RootState) => state.movies)
   useEffect(() => {
@@ -14,7 +18,8 @@ const Results = () => {
   }, [])
 
   return (
-    <Box>
+    <Box w='60%'>
+      <Text>Results for {searchString}</Text>
       {searchedMovies.map((movie, i) => (
         <Card key={i} movie={movie} />
       ))}

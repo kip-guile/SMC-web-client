@@ -4,12 +4,15 @@ import { Movie } from '../store/movies/types'
 import { useThunkDispatch } from '../hooks/useThunkDispatch'
 import { searchMovieDatabase } from '../store/movies/moviesSlice'
 
-const SearchInput = () => {
-  const [text, setText] = useState('')
-  const dispatch = useThunkDispatch()
-  const searchMovieDatabaseFunction = () => {
-    dispatch(searchMovieDatabase(text))
-  }
+interface SearchInputProps {
+  setText(e: string): void
+  searchMovieDatabaseFunction(): void
+}
+
+const SearchInput = ({
+  setText,
+  searchMovieDatabaseFunction,
+}: SearchInputProps) => {
   return (
     <Box m={5}>
       <InputGroup w='50rem' size='sm'>

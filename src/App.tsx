@@ -5,12 +5,14 @@ import './App.css'
 
 // Pages
 import Main from './pages/Main'
+import SingleMovie from './pages/SingleMovie'
 
 function App() {
   return (
     <ChakraProvider>
       <Switch>
         <Route exact path='/' component={Main} />
+        <Route exact path='/movies/:id' component={SingleMovie} />
       </Switch>
     </ChakraProvider>
   )
