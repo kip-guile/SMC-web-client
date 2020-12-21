@@ -1,9 +1,11 @@
 import React from 'react'
 import { Box, Text, Button, Image } from '@chakra-ui/react'
+import { useSelector } from 'react-redux'
 import { NavLink } from 'react-router-dom'
 import { useThunkDispatch } from '../hooks/useThunkDispatch'
 import { Movie } from '../store/movies/types'
-import { addNominationActionCreator } from '../store/nominations/nominationSlice'
+import { RootState } from '../store/rootReducer'
+import { addNomination } from '../store/nominations/nominationSlice'
 
 interface CardProps {
   movie: Movie
@@ -13,17 +15,47 @@ const Card = ({ movie }: CardProps) => {
   const link = `/movies/${movie.imdbID}`
   const dispatch = useThunkDispatch()
   const nominateFxn = () => {
-    dispatch(addNominationActionCreator(movie))
+    dispatch(addNomination(movie))
   }
+  const nominations = useSelector(
+    (state: RootState) => state.nominations.nominations
+  )
+  const index = nominations.findIndex((film) => film.imdbID === movie.imdbID)
   return (
     <Box d='flex' bgColor='whitesmoke' mb='2rem' p={5}>
       <Image mr={5} boxSize='100px' src={movie.Poster} alt={movie.Title} />
-      <Box>
+      <Box
+        display='flex'
+        alignItems='flex-start'
+        flexDirection='column'
+        justifyContent='space-evenly'
+      >
         <NavLink to={link}>
-          <Text>{movie.Title}</Text>
+          <Box
+            borderBottom='solid #282c35 1px'
+            _active={{
+              color: '#00BF86',
+              borderBottom: 'solid #00BF86 1px',
+            }}
+            _hover={{
+              color: '#00BF86',
+              borderBottom: 'solid #00BF86 1px',
+            }}
+          >
+            {movie.Title}
+          </Box>
         </NavLink>
         <Text>{movie.Year}</Text>
-        <Button onClick={nominateFxn}>Nominate</Button>
+        {index === -1 ? (
+          <Button
+            colorScheme='teal'
+            size='sm'
+            disabled={nominations.length >= 5}
+            onClick={nominateFxn}
+          >
+            Nominate
+          </Button>
+        ) : null}
       </Box>
     </Box>
   )
