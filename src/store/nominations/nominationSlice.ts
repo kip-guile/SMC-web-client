@@ -1,7 +1,8 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
+import axios from 'axios'
 import { Movie } from '../movies/types'
 import { FinalNominations } from './types'
-import axios from 'axios'
+import { baseUrl } from '../../config/index'
 
 const nominationsInitialState: FinalNominations = {
   loading: false,
@@ -9,13 +10,12 @@ const nominationsInitialState: FinalNominations = {
   nominations: [],
 }
 
+let url = baseUrl || ''
+
 export const addNomination = createAsyncThunk(
   'nominations/addNomination',
   async (movie: Movie) => {
-    const res = await axios.post(
-      `https://smc-backup-server.herokuapp.com/api/movies/`,
-      movie
-    )
+    const res = await axios.post(url, movie)
     return res.data
   }
 )
@@ -23,9 +23,7 @@ export const addNomination = createAsyncThunk(
 export const getNominations = createAsyncThunk(
   'nominations/getNominations',
   async () => {
-    const res = await axios.get(
-      `https://smc-backup-server.herokuapp.com/api/movies/`
-    )
+    const res = await axios.get(url)
     return res.data
   }
 )
@@ -33,9 +31,7 @@ export const getNominations = createAsyncThunk(
 export const removeNomination = createAsyncThunk(
   'nominations/removeNomination',
   async (id: string) => {
-    const res = await axios.delete(
-      `https://smc-backup-server.herokuapp.com/api/movies/${id}`
-    )
+    const res = await axios.delete(`${url}${id}`)
     return res.data
   }
 )

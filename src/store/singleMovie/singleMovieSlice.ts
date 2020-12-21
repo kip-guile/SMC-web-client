@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { SingleMovie } from './types'
 import axios from 'axios'
+import { SingleMovie } from './types'
+import { apiKey } from '../../config/index'
 
 const singleMovieInitialState: SingleMovie = {
   Rated: '',
@@ -28,7 +29,7 @@ export const getMovie = createAsyncThunk(
   async (id: string) => {
     console.log('start', id)
     const res = await axios.get(
-      `http://www.omdbapi.com/?apikey=45f98500&i=${id}`
+      `http://www.omdbapi.com/?apikey=${apiKey}&i=${id}`
     )
     console.log(res)
     return res.data

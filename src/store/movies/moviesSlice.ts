@@ -1,6 +1,7 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
-import { MovieState } from './types'
 import axios from 'axios'
+import { MovieState } from './types'
+import { apiKey } from '../../config/index'
 
 const moviesInitialState: MovieState = {
   searchString: '',
@@ -12,7 +13,7 @@ export const searchMovieDatabase = createAsyncThunk(
   'movies/searchMovieDatabase',
   async (searchString: string) => {
     const res = await axios.get(
-      `http://www.omdbapi.com/?apikey=45f98500&s=${searchString}`
+      `http://www.omdbapi.com/?apikey=${apiKey}&s=${searchString}`
     )
     return { movies: res.data.Search, string: searchString }
   }
