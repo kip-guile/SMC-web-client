@@ -4,14 +4,22 @@ import { useSelector } from 'react-redux'
 import { useThunkDispatch } from '../hooks/useThunkDispatch'
 import { RootState } from '../store/rootReducer'
 import { searchMovieDatabase } from '../store/movies/moviesSlice'
-import Results from '../components/results'
+import Card from './card'
 
-const Main = () => {
+const Results = () => {
+  const dispatch = useThunkDispatch()
+  const searchedMovies = useSelector((state: RootState) => state.movies)
+  useEffect(() => {
+    dispatch(searchMovieDatabase('blade'))
+  }, [])
+
   return (
     <Box>
-      <Results />
+      {searchedMovies.map((movie, i) => (
+        <Card key={i} movie={movie} />
+      ))}
     </Box>
   )
 }
 
-export default Main
+export default Results
