@@ -13,7 +13,6 @@ const Results = ({ searchString }: ResultsProps) => {
   const mainString = useSelector(
     (state: RootState) => state.movies.searchString
   )
-  console.log(searchedMovies)
   return (
     <Box w='60%'>
       {searchedMovies.length > 0 && mainString.length > 0 ? (

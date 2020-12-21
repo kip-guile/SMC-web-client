@@ -15,7 +15,6 @@ const SingleMovie = ({ match }: SingleMovieProps) => {
   const movie = useSelector((state: RootState) => state.singleMovie)
 
   useEffect(() => {
-    console.log('called')
     dispatch(getMovie(movieId))
   }, [movieId, dispatch])
 

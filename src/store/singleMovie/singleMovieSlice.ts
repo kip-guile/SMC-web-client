@@ -27,11 +27,9 @@ const singleMovieInitialState: SingleMovie = {
 export const getMovie = createAsyncThunk(
   'singleMovie/getMovie',
   async (id: string) => {
-    console.log('start', id)
     const res = await axios.get(
       `https://www.omdbapi.com/?apikey=${apiKey}&i=${id}`
     )
-    console.log(res)
     return res.data
   }
 )
