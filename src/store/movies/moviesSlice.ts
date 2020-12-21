@@ -13,7 +13,7 @@ export const searchMovieDatabase = createAsyncThunk(
   'movies/searchMovieDatabase',
   async (searchString: string) => {
     const res = await axios.get(
-      `http://www.omdbapi.com/?apikey=${apiKey}&s=${searchString}`
+      `https://www.omdbapi.com/?apikey=${apiKey}&s=${searchString}`
     )
     return { movies: res.data.Search, string: searchString }
   }
