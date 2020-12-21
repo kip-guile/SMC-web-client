@@ -1,4 +1,3 @@
-import Nominations from '../../components/nominations'
 import { Movie } from '../movies/types'
 
 interface Nominations extends Movie {
