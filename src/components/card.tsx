@@ -22,7 +22,14 @@ const Card = ({ movie }: CardProps) => {
   )
   const index = nominations.findIndex((film) => film.imdbID === movie.imdbID)
   return (
-    <Box d='flex' bgColor='whitesmoke' mb='2rem' p={5}>
+    <Box
+      w='45%'
+      d='flex'
+      bgColor={index === -1 ? 'white' : '#bee3f8'}
+      mb='2rem'
+      p={5}
+      borderRadius={8}
+    >
       <Image mr={5} boxSize='100px' src={movie.Poster} alt={movie.Title} />
       <Box
         display='flex'
@@ -55,7 +62,11 @@ const Card = ({ movie }: CardProps) => {
           >
             Nominate
           </Button>
-        ) : null}
+        ) : (
+          <Button variant='outline' colorScheme='pink' size='sm' disabled>
+            Selected
+          </Button>
+        )}
       </Box>
     </Box>
   )

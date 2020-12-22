@@ -16,9 +16,16 @@ const Nominations = () => {
     dispatch(getNominations())
   }, [dispatch])
   return (
-    <Box w='30%'>
-      <Text mb={4} fontSize='xl'>
-        Nominations
+    <Box
+      w='30%'
+      backgroundColor='whitesmoke'
+      display='flex'
+      flexDirection='column'
+      borderRadius={8}
+      p={4}
+    >
+      <Text fontWeight='bold' mb={4} fontSize='xl'>
+        My nominations
       </Text>
       {nominations.map((movie, i) => (
         <NominationCard key={i} movie={movie} />

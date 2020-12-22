@@ -16,7 +16,7 @@ const NominationCard = ({ movie }: CardProps) => {
     dispatch(removeNomination(movie.imdbID))
   }
   return (
-    <Box d='flex' bgColor='whitesmoke' mb='2rem' p={5}>
+    <Box d='flex' bgColor='white' mb='2rem' p={5} borderRadius={8}>
       <Image mr={5} boxSize='100px' src={movie.Poster} alt={movie.Title} />
       <Box
         display='flex'

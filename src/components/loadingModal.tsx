@@ -29,7 +29,9 @@ const LoadingModal = ({ isOpen, onClose }: LoadingModalProps) => {
               alignItems='center'
               justifyContent='center'
             >
-              <Text mb={5}>Loading...</Text>
+              <Text fontWeight='bold' mb={5}>
+                Loading...
+              </Text>
               <Spinner
                 thickness='4px'
                 speed='0.65s'

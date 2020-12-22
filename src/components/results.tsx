@@ -14,19 +14,33 @@ const Results = ({ searchString }: ResultsProps) => {
     (state: RootState) => state.movies.searchString
   )
   return (
-    <Box w='60%'>
+    <Box
+      w='60%'
+      backgroundColor='whitesmoke'
+      display='flex'
+      flexDirection='column'
+      borderRadius={8}
+      p={4}
+    >
       {searchedMovies.length > 0 && mainString.length > 0 ? (
-        <Text mb={4} fontSize='xl'>
+        <Text fontWeight='bold' mb={4} fontSize='xl'>
           Results for "{mainString}"
         </Text>
       ) : null}
-      {searchedMovies.length > 0 ? (
-        searchedMovies.map((movie, i) => <Card key={i} movie={movie} />)
-      ) : (
-        <Text textAlign='center' mb={4} fontSize='xl'>
-          Search for a movie
-        </Text>
-      )}
+      <Box
+        w='100%'
+        display='flex'
+        flexWrap='wrap'
+        justifyContent='space-between'
+      >
+        {searchedMovies.length > 0 ? (
+          searchedMovies.map((movie, i) => <Card key={i} movie={movie} />)
+        ) : (
+          <Text fontWeight='bold' textAlign='center' mb={4} fontSize='xl'>
+            Search for a movie...
+          </Text>
+        )}
+      </Box>
     </Box>
   )
 }

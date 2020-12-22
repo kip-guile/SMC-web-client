@@ -20,3 +20,8 @@ export interface SingleMovie extends Movie {
   Metascore: string
   imdbRating: string
 }
+
+export interface SingleMovieState {
+  loading: boolean
+  singleMovie: SingleMovie
+}

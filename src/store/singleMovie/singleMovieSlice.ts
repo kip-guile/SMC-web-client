@@ -1,27 +1,30 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit'
 import axios from 'axios'
-import { SingleMovie } from './types'
+import { SingleMovieState } from './types'
 import { apiKey } from '../../config/index'
 
-const singleMovieInitialState: SingleMovie = {
-  Rated: '',
-  Released: '',
-  Runtime: '',
-  Genre: '',
-  Director: '',
-  Actors: '',
-  Plot: '',
-  Language: '',
-  Country: '',
-  Awards: '',
-  Ratings: [],
-  Metascore: '',
-  imdbRating: '',
-  Title: '',
-  Year: '',
-  imdbID: '',
-  Type: '',
-  Poster: '',
+const singleMovieInitialState: SingleMovieState = {
+  loading: false,
+  singleMovie: {
+    Rated: '',
+    Released: '',
+    Runtime: '',
+    Genre: '',
+    Director: '',
+    Actors: '',
+    Plot: '',
+    Language: '',
+    Country: '',
+    Awards: '',
+    Ratings: [],
+    Metascore: '',
+    imdbRating: '',
+    Title: '',
+    Year: '',
+    imdbID: '',
+    Type: '',
+    Poster: '',
+  },
 }
 
 export const getMovie = createAsyncThunk(
@@ -39,8 +42,11 @@ const singleMovieSlice = createSlice({
   initialState: singleMovieInitialState,
   reducers: {},
   extraReducers: (builder) => {
+    builder.addCase(getMovie.pending, (state, action) => {
+      return { ...state, loading: true }
+    })
     builder.addCase(getMovie.fulfilled, (state, action) => {
-      return action.payload
+      return { loading: false, singleMovie: action.payload }
     })
   },
 })

@@ -12,15 +12,16 @@ const SearchInput = ({
 }: SearchInputProps) => {
   return (
     <Box
-      m={5}
       p={5}
       d='flex'
       flexDirection='column'
       justifyContent='center'
       alignItems='center'
+      backgroundColor='whitesmoke'
     >
       <InputGroup w='50rem' size='sm'>
         <Input
+          backgroundColor='white'
           mr={8}
           placeholder='Search'
           onChange={(e: React.ChangeEvent<HTMLInputElement>) =>

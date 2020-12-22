@@ -22,8 +22,13 @@ const Main = () => {
     dispatch(searchMovieDatabase(text))
   }
   return (
-    <Box>
-      <Text textAlign='center' fontSize='4xl'>
+    <Box
+      d='flex'
+      flexDirection='column'
+      justifyContent='center'
+      alignItems='center'
+    >
+      <Text fontWeight='bold' textAlign='center' fontSize='4xl' m='2rem'>
         The Shoppies
       </Text>
       <SearchInput
@@ -31,11 +36,11 @@ const Main = () => {
         searchMovieDatabaseFunction={searchMovieDatabaseFunction}
       />
       <Box p={5} m={5}>
-        {nominations.length === 5 ? (
+        {nominations.length >= 5 ? (
           <Banner status='info' message='You have five nominations' />
         ) : null}
       </Box>
-      <Box d='flex' justifyContent='space-evenly'>
+      <Box w='100%' d='flex' justifyContent='space-evenly'>
         <Results searchString={text} />
         <Nominations />
       </Box>

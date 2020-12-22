@@ -58,8 +58,11 @@ const nominationsSlice = createSlice({
         loading: false,
       }
     })
+    builder.addCase(getNominations.pending, (state, action) => {
+      return { ...state, loading: true }
+    })
     builder.addCase(getNominations.fulfilled, (state, action) => {
-      return { ...state, nominations: action.payload }
+      return { ...state, loading: false, nominations: action.payload }
     })
     builder.addCase(removeNomination.pending, (state, action) => {
       return { ...state, loading: true }
