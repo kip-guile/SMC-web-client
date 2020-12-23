@@ -31,7 +31,7 @@
   "scripts": {
     "start": "rm -rf tsconfig.json && react-scripts start",
     "build": "rm -rf tsconfig.json && react-scripts build",
-    "test": "react-scripts test",
+    "test": "rm -rf tsconfig.json && react-scripts test",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
@@ -51,5 +51,10 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
+  },
+  "devDependencies": {
+    "@types/enzyme": "^3.10.8",
+    "@wojtekmaj/enzyme-adapter-react-17": "^0.4.1",
+    "enzyme": "^3.11.0"
   }
 }
