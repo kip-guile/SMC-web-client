@@ -13,4 +13,4 @@ A full stack application managing movie nominations from the OMDB API. This repo
 - User can view mpre information about a movie by going to a single page view.
 - Once a user has 5 nominations, the nomination feature is disabled and a banner is displayed to the user
 
-[App](https://user-images.githubusercontent.com/38817414/102961148-e4186100-44e3-11eb-95fb-defa0e1ee25d.png)
+![image](https://user-images.githubusercontent.com/38817414/102961148-e4186100-44e3-11eb-95fb-defa0e1ee25d.png)
