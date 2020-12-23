@@ -15,12 +15,15 @@ const Results = ({ searchString }: ResultsProps) => {
   )
   return (
     <Box
-      w='60%'
+      w='65%'
       backgroundColor='whitesmoke'
       display='flex'
       flexDirection='column'
       borderRadius={8}
       p={4}
+      height='37rem'
+      overflow='auto'
+      fontFamily='Crimson Text, serif'
     >
       {searchedMovies.length > 0 && mainString.length > 0 ? (
         <Text fontWeight='bold' mb={4} fontSize='xl'>

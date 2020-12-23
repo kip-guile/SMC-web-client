@@ -21,13 +21,25 @@ const SingleMovie = ({ match }: SingleMovieProps) => {
   }, [movieId, dispatch])
 
   return (
-    <Box p='2rem'>
+    <Box backgroundColor='#282c35' p='2rem'>
       <Box d='flex' flexDirection='column' alignItems='center'>
-        <Text fontWeight='bold' mb={4} fontSize='3xl' textAlign='center'>
+        <Text
+          color='white'
+          fontWeight='bold'
+          mb={4}
+          fontSize='3xl'
+          textAlign='center'
+        >
           {movie.Title} ({movie.Year})
         </Text>
         <Image m={8} boxSize='500px' src={movie.Poster} alt={movie.Title} />
-        <Box padding={8} backgroundColor='whitesmoke' ml='10rem' mr='10rem'>
+        <Box
+          fontFamily='Crimson Text, serif'
+          padding={8}
+          backgroundColor='whitesmoke'
+          ml='10rem'
+          mr='10rem'
+        >
           <Text mb={3}>Plot: {movie.Plot}</Text>
           <Text mb={3}>Actors: {movie.Actors}</Text>
           <Text mb={3}>Runtime: {movie.Runtime}</Text>

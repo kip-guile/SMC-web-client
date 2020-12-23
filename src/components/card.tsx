@@ -23,34 +23,41 @@ const Card = ({ movie }: CardProps) => {
   const index = nominations.findIndex((film) => film.imdbID === movie.imdbID)
   return (
     <Box
-      w='45%'
+      w='30%'
       d='flex'
-      bgColor={index === -1 ? 'white' : '#bee3f8'}
+      bgColor={index === -1 ? '#282c35' : '#95979b'}
+      color='white'
       mb='2rem'
       p={5}
       borderRadius={8}
     >
-      <Image mr={5} boxSize='100px' src={movie.Poster} alt={movie.Title} />
+      <Image
+        mr={5}
+        boxSize='100px'
+        src={
+          movie.Poster === 'N/A'
+            ? 'https://dummyimage.com/150x200/efefef/000000.png&text=Poster+not+available'
+            : movie.Poster
+        }
+        alt={movie.Title}
+      />
       <Box
         display='flex'
+        fontSize='0.9rem'
         alignItems='flex-start'
         flexDirection='column'
         justifyContent='space-evenly'
       >
         <NavLink to={link}>
-          <Box
-            borderBottom='solid #282c35 1px'
-            _active={{
-              color: '#00BF86',
-              borderBottom: 'solid #00BF86 1px',
-            }}
+          <Text
+            fontWeight='bold'
+            color='#00BF86'
             _hover={{
-              color: '#00BF86',
-              borderBottom: 'solid #00BF86 1px',
+              color: '#319795',
             }}
           >
             {movie.Title}
-          </Box>
+          </Text>
         </NavLink>
         <Text>{movie.Year}</Text>
         {index === -1 ? (
@@ -63,7 +70,7 @@ const Card = ({ movie }: CardProps) => {
             Nominate
           </Button>
         ) : (
-          <Button variant='outline' colorScheme='pink' size='sm' disabled>
+          <Button variant='outline' colorScheme='white' size='sm' disabled>
             Selected
           </Button>
         )}

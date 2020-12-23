@@ -3,7 +3,7 @@ import { Box, Input, InputGroup, Button } from '@chakra-ui/react'
 
 interface SearchInputProps {
   setText(e: string): void
-  searchMovieDatabaseFunction(): void
+  searchMovieDatabaseFunction(event: React.FormEvent<HTMLFormElement>): void
 }
 
 const SearchInput = ({
@@ -17,25 +17,24 @@ const SearchInput = ({
       flexDirection='column'
       justifyContent='center'
       alignItems='center'
-      backgroundColor='whitesmoke'
+      w='50%'
     >
-      <InputGroup w='50rem' size='sm'>
-        <Input
-          backgroundColor='white'
-          mr={8}
-          placeholder='Search'
-          onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
-            setText(e.target.value)
-          }
-        />
-        <Button
-          colorScheme='teal'
-          size='sm'
-          onClick={searchMovieDatabaseFunction}
-        >
-          Search
-        </Button>
-      </InputGroup>
+      <form style={{ width: '70%' }} onSubmit={searchMovieDatabaseFunction}>
+        <InputGroup size='sm'>
+          <Input
+            backgroundColor='white'
+            mr={8}
+            w='100%'
+            placeholder='Search'
+            onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+              setText(e.target.value)
+            }
+          />
+          <Button type='submit' colorScheme='teal' size='sm'>
+            Search
+          </Button>
+        </InputGroup>
+      </form>
     </Box>
   )
 }

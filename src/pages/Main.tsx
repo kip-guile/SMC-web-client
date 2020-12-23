@@ -18,7 +18,10 @@ const Main = () => {
   const nominations = useSelector(
     (state: RootState) => state.nominations.nominations
   )
-  const searchMovieDatabaseFunction = () => {
+  const searchMovieDatabaseFunction = (
+    event: React.FormEvent<HTMLFormElement>
+  ) => {
+    event.preventDefault()
     dispatch(searchMovieDatabase(text))
   }
   return (
@@ -27,15 +30,24 @@ const Main = () => {
       flexDirection='column'
       justifyContent='center'
       alignItems='center'
+      p={8}
+      backgroundColor='#282c35'
     >
-      <Text fontWeight='bold' textAlign='center' fontSize='4xl' m='2rem'>
-        The Shoppies
-      </Text>
-      <SearchInput
-        setText={setText}
-        searchMovieDatabaseFunction={searchMovieDatabaseFunction}
-      />
-      <Box p={5} m={5}>
+      <Box d='flex' w='100%' justifyContent='space-around'>
+        <Text
+          color='#ffa7c4'
+          fontWeight='bold'
+          textAlign='center'
+          fontSize='4xl'
+        >
+          The Shoppies
+        </Text>
+        <SearchInput
+          setText={setText}
+          searchMovieDatabaseFunction={searchMovieDatabaseFunction}
+        />
+      </Box>
+      <Box p={2}>
         {nominations.length >= 5 ? (
           <Banner status='info' message='You have five nominations' />
         ) : null}

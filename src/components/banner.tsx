@@ -9,7 +9,7 @@ interface BannerProps {
 const Banner = ({ message, status }: BannerProps) => {
   return (
     <>
-      <Alert status={status}>
+      <Alert fontFamily='Crimson Text, serif' status={status}>
         <AlertIcon />
         <AlertDescription>{message}</AlertDescription>
       </Alert>
