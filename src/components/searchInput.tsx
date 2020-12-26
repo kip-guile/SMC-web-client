@@ -4,11 +4,13 @@ import { Box, Input, InputGroup, Button } from '@chakra-ui/react'
 interface SearchInputProps {
   setText(e: string): void
   searchMovieDatabaseFunction(event: React.FormEvent<HTMLFormElement>): void
+  text: string
 }
 
 const SearchInput = ({
   setText,
   searchMovieDatabaseFunction,
+  text,
 }: SearchInputProps) => {
   return (
     <Box
@@ -25,6 +27,7 @@ const SearchInput = ({
             backgroundColor='white'
             mr={8}
             w='100%'
+            value={text}
             placeholder='Search'
             onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
               setText(e.target.value)

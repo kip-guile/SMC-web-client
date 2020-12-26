@@ -31,7 +31,7 @@
   "scripts": {
     "start": "rm -rf tsconfig.json && react-scripts start",
     "build": "rm -rf tsconfig.json && react-scripts build",
-    "test": "rm -rf tsconfig.json && react-scripts test",
+    "test": "rm -rf tsconfig.json && react-scripts test --detectOpenHandles --watchAll --verbose --coverage",
     "eject": "react-scripts eject"
   },
   "eslintConfig": {
