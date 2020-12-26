@@ -3,7 +3,7 @@ import axios from 'axios'
 import { SingleMovieState } from './types'
 import { apiKey } from '../../config/index'
 
-const singleMovieInitialState: SingleMovieState = {
+export const singleMovieInitialState: SingleMovieState = {
   loading: false,
   singleMovie: {
     Rated: '',
