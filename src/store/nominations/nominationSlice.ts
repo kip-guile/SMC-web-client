@@ -4,7 +4,7 @@ import { Movie } from '../movies/types'
 import { FinalNominations } from './types'
 import { baseUrl } from '../../config/index'
 
-const nominationsInitialState: FinalNominations = {
+export const nominationsInitialState: FinalNominations = {
   loading: false,
   error: '',
   nominations: [],

@@ -3,7 +3,7 @@ import axios from 'axios'
 import { MovieState } from './types'
 import { apiKey } from '../../config/index'
 
-const moviesInitialState: MovieState = {
+export const moviesInitialState: MovieState = {
   searchString: '',
   movies: [],
   loading: false,

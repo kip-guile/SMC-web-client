@@ -23,6 +23,7 @@ const Main = () => {
   ) => {
     event.preventDefault()
     dispatch(searchMovieDatabase(text))
+    setText('')
   }
   return (
     <Box
@@ -44,6 +45,7 @@ const Main = () => {
         </Text>
         <SearchInput
           setText={setText}
+          text={text}
           searchMovieDatabaseFunction={searchMovieDatabaseFunction}
         />
       </Box>
