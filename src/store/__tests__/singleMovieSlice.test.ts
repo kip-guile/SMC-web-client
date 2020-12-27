@@ -2,11 +2,6 @@ import singleMovieSliceReducer, {
   singleMovieInitialState,
 } from '../singleMovie/singleMovieSlice'
 
-const finalState = {
-  singleMovie: {},
-  loading: false,
-}
-
 it('handles actions of type singleMovie/getMovie/pending', () => {
   const action = {
     type: 'singleMovie/getMovie/pending',
