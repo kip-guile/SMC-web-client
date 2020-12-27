@@ -23,7 +23,7 @@ const Card = ({ movie }: CardProps) => {
   const index = nominations.findIndex((film) => film.imdbID === movie.imdbID)
   return (
     <Box
-      w='30%'
+      w={{ md: '30%' }}
       d='flex'
       bgColor={index === -1 ? '#282c35' : '#95979b'}
       color='white'

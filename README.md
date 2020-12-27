@@ -4,7 +4,7 @@ A full stack application managing movie nominations from the OMDB API. This repo
 
 - The client side is built using React.Js/TypeScript and Redux toolkit for state management, while the server side is a REST API built with Node.Js/Express, powered by a MongoDB database. It saves the users nominations.
 
-* The app was deployed with [Vercel](https://smc-web-client.vercel.app/)
+* The app was deployed with Vercel [here](https://smc-web-client.vercel.app/)
 
 ## Features
 
@@ -14,3 +14,4 @@ A full stack application managing movie nominations from the OMDB API. This repo
 - Once a user has 5 nominations, the nomination feature is disabled and a banner is displayed to the user
 
 ![image](https://user-images.githubusercontent.com/38817414/102961148-e4186100-44e3-11eb-95fb-defa0e1ee25d.png)
+![image](https://user-images.githubusercontent.com/38817414/103161509-34910680-47e3-11eb-8127-a0cfdebdfcfd.png)
