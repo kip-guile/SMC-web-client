@@ -27,14 +27,14 @@ const Main = () => {
   }
   return (
     <Box
-      d='flex'
+      d={{ md: 'flex' }}
       flexDirection='column'
       justifyContent='center'
       alignItems='center'
       p={8}
       backgroundColor='#282c35'
     >
-      <Box d='flex' w='100%' justifyContent='space-around'>
+      <Box d={{ md: 'flex' }} w='100%' justifyContent='space-around'>
         <Text
           color='#ffa7c4'
           fontWeight='bold'
@@ -54,7 +54,7 @@ const Main = () => {
           <Banner status='info' message='You have five nominations' />
         ) : null}
       </Box>
-      <Box w='100%' d='flex' justifyContent='space-evenly'>
+      <Box w='100%' d={{ md: 'flex' }} justifyContent='space-evenly'>
         <Results searchString={text} />
         <Nominations />
       </Box>

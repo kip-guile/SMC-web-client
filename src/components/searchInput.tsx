@@ -19,7 +19,7 @@ const SearchInput = ({
       flexDirection='column'
       justifyContent='center'
       alignItems='center'
-      w='50%'
+      w={{ base: '100%', md: '50%' }}
     >
       <form style={{ width: '70%' }} onSubmit={searchMovieDatabaseFunction}>
         <InputGroup size='sm'>

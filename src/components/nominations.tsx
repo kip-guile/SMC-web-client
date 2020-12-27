@@ -17,14 +17,14 @@ const Nominations = () => {
   }, [dispatch])
   return (
     <Box
-      w='23%'
+      w={{ md: '25%' }}
       backgroundColor='whitesmoke'
       display='flex'
       flexDirection='column'
       borderRadius={8}
       p={4}
-      height='37rem'
-      overflow='auto'
+      height={{ md: '37rem' }}
+      overflow={{ md: 'auto' }}
       fontFamily='Crimson Text, serif'
     >
       <Text fontWeight='bold' mb={4} fontSize='xl'>

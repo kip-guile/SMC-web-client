@@ -15,15 +15,16 @@ const Results = ({ searchString }: ResultsProps) => {
   )
   return (
     <Box
-      w='65%'
+      w={{ md: '65%' }}
       backgroundColor='whitesmoke'
-      display='flex'
-      flexDirection='column'
+      display={{ md: 'flex' }}
+      flexDirection={{ md: 'column' }}
       borderRadius={8}
       p={4}
-      height='37rem'
-      overflow='auto'
+      height={{ md: '37rem' }}
+      overflow={{ md: 'auto' }}
       fontFamily='Crimson Text, serif'
+      marginBottom={{ base: 4, md: 0 }}
     >
       {searchedMovies.length > 0 && mainString.length > 0 ? (
         <Text fontWeight='bold' mb={4} fontSize='xl'>
@@ -32,7 +33,7 @@ const Results = ({ searchString }: ResultsProps) => {
       ) : null}
       <Box
         w='100%'
-        display='flex'
+        display={{ md: 'flex' }}
         flexWrap='wrap'
         justifyContent='space-between'
       >
