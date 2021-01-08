@@ -15,6 +15,7 @@ export const searchMovieDatabase = createAsyncThunk(
     const res = await axios.get(
       `https://www.omdbapi.com/?apikey=${apiKey}&s=${searchString}`
     )
+    window.localStorage.setItem('movies', JSON.stringify(res.data.Search))
     return { movies: res.data.Search, string: searchString }
   }
 )
