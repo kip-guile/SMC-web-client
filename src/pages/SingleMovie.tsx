@@ -37,8 +37,8 @@ const SingleMovie = ({ match }: SingleMovieProps) => {
           fontFamily='Crimson Text, serif'
           padding={8}
           backgroundColor='whitesmoke'
-          ml='10rem'
-          mr='10rem'
+          ml={{ lg: '10rem' }}
+          mr={{ lg: '10rem' }}
         >
           <Text mb={3}>Plot: {movie.Plot}</Text>
           <Text mb={3}>Actors: {movie.Actors}</Text>

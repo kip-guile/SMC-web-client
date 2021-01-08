@@ -10,6 +10,7 @@ const finalState = {
   searchString: '',
   movies: [],
   loading: true,
+  error: '',
 }
 
 it('handles actions of type movies/searchMovieDatabase/pending', () => {

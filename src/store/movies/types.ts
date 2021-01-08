@@ -10,4 +10,5 @@ export interface MovieState {
   searchString: string
   loading: boolean
   movies: Movie[]
+  error: string
 }
