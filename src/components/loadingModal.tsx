@@ -29,14 +29,14 @@ const LoadingModal = ({ isOpen, onClose }: LoadingModalProps) => {
               alignItems='center'
               justifyContent='center'
             >
-              <Text fontWeight='bold' mb={5}>
+              <Text color='green.500' fontWeight='bold' mb={5}>
                 Loading...
               </Text>
               <Spinner
                 thickness='4px'
                 speed='0.65s'
                 emptyColor='gray.200'
-                color='blue.500'
+                color='green.500'
                 size='xl'
               />
             </Box>
