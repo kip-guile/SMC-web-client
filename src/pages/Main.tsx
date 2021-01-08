@@ -15,6 +15,7 @@ const Main = () => {
   const dispatch = useThunkDispatch()
   const loading = useSelector((state: RootState) => state.nominations.loading)
   const searchLoading = useSelector((state: RootState) => state.movies.loading)
+  const searchErrors = useSelector((state: RootState) => state.movies.error)
   const nominations = useSelector(
     (state: RootState) => state.nominations.nominations
   )
@@ -48,6 +49,11 @@ const Main = () => {
           text={text}
           searchMovieDatabaseFunction={searchMovieDatabaseFunction}
         />
+      </Box>
+      <Box p={2}>
+        {searchErrors ? (
+          <Banner status='warning' message={searchErrors} />
+        ) : null}
       </Box>
       <Box p={2}>
         {nominations.length >= 5 ? (

@@ -7,6 +7,7 @@ export const moviesInitialState: MovieState = {
   searchString: '',
   movies: [],
   loading: false,
+  error: '',
 }
 
 export const searchMovieDatabase = createAsyncThunk(
@@ -16,7 +17,12 @@ export const searchMovieDatabase = createAsyncThunk(
       `https://www.omdbapi.com/?apikey=${apiKey}&s=${searchString}`
     )
     window.localStorage.setItem('movies', JSON.stringify(res.data.Search))
-    return { movies: res.data.Search, string: searchString }
+    console.log(res.data)
+    if (res.data.Response === 'True') {
+      return { movies: res.data.Search, string: searchString }
+    } else {
+      return res.data.Error
+    }
   }
 )
 
@@ -32,10 +38,19 @@ const movieSlice = createSlice({
       }
     })
     builder.addCase(searchMovieDatabase.fulfilled, (state, action) => {
-      return {
-        searchString: action.payload.string,
-        movies: action.payload.movies ? action.payload.movies : [],
-        loading: false,
+      if (action.payload.string) {
+        return {
+          searchString: action.payload.string,
+          movies: action.payload.movies ? action.payload.movies : [],
+          loading: false,
+          error: '',
+        }
+      } else {
+        return {
+          ...state,
+          loading: false,
+          error: action.payload,
+        }
       }
     })
     builder.addCase(searchMovieDatabase.rejected, (state, action) => {
@@ -43,6 +58,7 @@ const movieSlice = createSlice({
         ...state,
         movies: [...state.movies],
         loading: false,
+        error: '',
       }
     })
   },
